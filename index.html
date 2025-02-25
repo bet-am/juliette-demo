@@ -1,30 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+    <link rel="stylesheet" href="https://use.typekit.net/czw1adi.css">
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>1 INPUT 1 OUTPUT TEMPLATE</title>
     <style>
+        h1 {
+            font-family: "lulo-one", sans-serif;
+            font-weight: 700;
+            font-style: normal;
+            font-size: 45px;
+            color: hotpink;
+        }
+
+        body {
+            background-color: pink;
+            margin: 100px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-items: center;
+
+        }
 
         /* STYLE FOR THE INPUT FIELD */
         #charInput {
+            background-color: mistyrose;
+            color: hotpink;
+            font-family: "lulo-outline", sans-serif;
+            font-weight: 700;
+            font-style: normal;
+            font-size: 100px;
+            width: 175px;
+            height: 175px;
+            text-align: center;
+            border: 10px solid darkmagenta;
+
 
         }
 
         /* STYLE FOR THE SUBMIT BUTTON */
         #submitButton {
 
+            margin-top: 25px;
+            background-color: hotpink;
+            font-family: "lulo-one", sans-serif;
+            font-weight: 700;
+            font-style: normal;
+            color: mistyrose;
+            text-align: center;
+            padding: 10px;
+            font-size: 16px;
+            border: 0px;
+        }
+
+        #submitButton:hover {
+            background-color: mistyrose;
+            color: hotpink;
+        }
+
+        #submitButton:active {
+            font-family: "lulo-outline", sans-serif;
+            font-weight: 700;
+            font-style: normal;
         }
 
         /* STYLE FOR THE IMAGE */
         #displayedImage {
-            display: none; /* This line is mandatory */
+            display: none;
+            /* This line is mandatory */
+            margin-top: 25px;
+            height: 75vh;
+            border: 10px solid darkmagenta;
         }
     </style>
 </head>
-<body>
 
-    
+<body>
+    <h1>Type a Letter A-Z!</h1>
+
     <!-- INPUT FIELD FOR 1 CHARACTER -->
     <input type="text" id="charInput" maxlength="1">
 
@@ -40,55 +97,58 @@
         // Array of images
         // DIRECTIONS: UPDATE THE URLS WITH THE RELATIVE LINKS OF YOUR IMAGES
         const images = [
-            "https://via.placeholder.com/300/00FF00/FFFFFF?text=A", //A
-            "https://via.placeholder.com/300/00FF00/FFFFFF?text=B", //B
-            "https://via.placeholder.com/300/0000FF/FFFFFF?text=C", //C
-            "https://via.placeholder.com/300/FFFF00/000000?text=D", //D
-            "https://via.placeholder.com/300/FF00FF/FFFFFF?text=E", //E
-            "https://via.placeholder.com/300/FF00FF/FFFFFF?text=F", //F
-            "https://via.placeholder.com/300/FF00FF/FFFFFF?text=G", //G
-            "https://via.placeholder.com/300/FF00FF/FFFFFF?text=H", //H
-            "https://via.placeholder.com/300/FF00FF/FFFFFF?text=I", //I
-            "https://via.placeholder.com/300/FF00FF/FFFFFF?text=J", //J
-            "https://via.placeholder.com/300/FF00FF/FFFFFF?text=K", //K
-            "https://via.placeholder.com/300/FF00FF/FFFFFF?text=L", //L
-            "https://via.placeholder.com/300/FF00FF/FFFFFF?text=M", //M
-            "https://via.placeholder.com/300/FF00FF/FFFFFF?text=N", //N
-            "https://via.placeholder.com/300/FF00FF/FFFFFF?text=O", //O
-            "https://via.placeholder.com/300/FF00FF/FFFFFF?text=P", //P
-            "https://via.placeholder.com/300/FF00FF/FFFFFF?text=Q", //Q
-            "https://via.placeholder.com/300/FF00FF/FFFFFF?text=R", //R
-            "https://via.placeholder.com/300/FF00FF/FFFFFF?text=S", //S
-            "https://via.placeholder.com/300/FF00FF/FFFFFF?text=T", //T
-            "https://via.placeholder.com/300/FF00FF/FFFFFF?text=U", //U
-            "https://via.placeholder.com/300/FF00FF/FFFFFF?text=V", //V
-            "https://via.placeholder.com/300/FF00FF/FFFFFF?text=W", //W
-            "https://via.placeholder.com/300/FF00FF/FFFFFF?text=X", //X
-            "https://via.placeholder.com/300/FF00FF/FFFFFF?text=Y", //Y
-            "https://via.placeholder.com/300/FF00FF/FFFFFF?text=Z"  //Z
+            "https://idiggreenacres.com/cdn/shop/products/Azalea_PinkLace_1024x1024.jpg?v=1559689206/300/0000FF/FFFFFF?text=", //A
+            "https://i5.walmartimages.com/seo/Candy-Retailer-1-Inch-Gumballs-Original-1-Lb_b05bdf96-d51c-49c7-abfa-9c8faef9d178.5e046ebbbef4fed0a7fa987905df7565.jpeg?odnHeight=2000&odnWidth=2000&odnBg=FFFFFF/300/00FF00/FFFFFF?text=B", //B
+            "images/c.png?text=C", //C
+            "images/d.png?text=D", //D
+            "images/e.png?text=E", //E
+            "images/f.jpg?text=F", //F
+            "images/g.jpg?text=G", //G
+            "images/h.jpg?text=H", //H
+            "images/i.jpg?text=I", //I
+            "images/j.jpg?text=J", //J
+            "images/k.png?text=K", //K
+            "images/l.jpg?text=L", //L
+            "images/m.jpg?text=M", //M
+            "images/n.png?text=N", //N
+            "images/o.jpg?text=O", //O
+            "images/p.jpg?text=P", //P
+            "images/q.jpg?text=Q", //Q
+            "images/r.jpg?text=R", //R
+            "images/s.jpg?text=S", //S
+            "images/t.jpg?text=T", //T
+            "images/u.jpg?text=U", //U
+            "images/v.jpg?text=V", //V
+            "images/w.jpg?text=W", //W
+            "images/x.png?text=X", //X
+            "images/y.jpg?text=Y", //Y
+            "images/z.jpg?text=Z"  //Z
         ];
 
         function displayImage() {
             const input = document.getElementById("charInput").value.toUpperCase();
             const imgElement = document.getElementById("displayedImage");
-            
+
             // Assign an image based on character (A-Z)
             const index = input.charCodeAt(0) - 65; // 'A' is 65 in ASCII
             if (index >= 0 && index < images.length) {
                 imgElement.src = images[index];
                 imgElement.style.display = "block";
             } else {
+
                 /* 
                 alert("Please enter a letter between A and Z.");
                 imgElement.style.display = "none";
                 */
 
                 // IF INVALID INPUT IS ENTERED, DISPLAY ALTERNATE IMAGE
-                imgElement.src = "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExcmtkdnJhMXY4Njd1cXR3MTM3MW1nMzZ1NXNhNHlhOHA0MWF2dDUzdyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/13dRJkj5wgKq9q/giphy.gif"
+                imgElement.src = "images/tryagain.png"
                 imgElement.style.display = "block";
             }
+
         }
     </script>
 
 </body>
+
 </html>
